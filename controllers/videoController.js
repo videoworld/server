@@ -2,7 +2,20 @@ const Video = require('../models/video')
 
 class Controller {
     static allVideos(req, res) {
-
+        Video.find({})
+        .then(videos => {
+            res
+                .status(200)
+                .json(videos)
+        })  
+        .catch(err => {
+            res
+                .status(500)
+                .json({
+                    msg: `Internal server error`,
+                    err: err
+                })
+        })
     }
 
     static addVideo(req, res) {
