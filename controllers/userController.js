@@ -1,6 +1,4 @@
 const User = require('../models/user')
-const compareHash= require('../helpers/compareHash')
-// const goog
 const jwt = require('jsonwebtoken')
 
 class UserController { 

@@ -8,4 +8,3 @@ router.use('/login', userController.loginByGoogle)
 
 
 module.exports = router
-

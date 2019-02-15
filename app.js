@@ -6,7 +6,7 @@ const port = process.env.PORT
 const cors = require('cors')
 const indexRouter = require('./routes/index')
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/video-world', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/video-world', { useNewUrlParser: true, useCreateIndex: true,});
 
 app.use(cors())
 app.use(express.urlencoded({ extended: false }))
