@@ -6,7 +6,6 @@ class Controller {
     }
 
     static addVideo(req, res) {
-        console.log('===')
         let video = ''
         if(req.file) {
             video = req.file.cloudStoragePublicUrl

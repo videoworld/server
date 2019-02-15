@@ -1,19 +1,10 @@
 const router = require('express').Router()
 const videos = require('./videos')
-const images = require('../helpers/videos')
+const userController = require('../controllers/userController')
 
 router.use('/videos', videos)
-// router.post('/upload',
-//   images.multer.single('video'), 
-//   images.sendUploadToGCS,
-//   (req, res) => {
-//     console.log(res)
-//     res.send({
-//       status: 200,
-//       message: 'Your file is successfully uploaded',
-//       link: req.file.cloudStoragePublicUrl
-//     })
-//   })
+router.use('/login', userController.loginByGoogle)
+
 
 
 module.exports = router
