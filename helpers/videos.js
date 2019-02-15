@@ -20,6 +20,7 @@ const sendUploadToGCS = (req, res, next) => {
     return next()
   }
 
+  req.file.originalname = req.file.originalname.replace(/\s/g,'')
   const gcsname = Date.now() + req.file.originalname
   const file = bucket.file(gcsname)
   const stream = file.createWriteStream({
