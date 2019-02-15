@@ -5,7 +5,7 @@ class UserController {
 
   static loginByGoogle(req, res){
     const {OAuth2Client} = require('google-auth-library')
-    const CLIENT_ID = "1061187022160-pvscbjvom1vrfjadl355hcv5hjf19kb3.apps.googleusercontent.com"
+    const CLIENT_ID = "299733928822-cq5dvg61rfvvn07vj1po12e9ful75hjn.apps.googleusercontent.com"
     const client = new OAuth2Client(CLIENT_ID)
     let user = null
     client.verifyIdToken({
@@ -28,7 +28,7 @@ class UserController {
         .then(user => {
           const token = jwt.sign( {
             email : user.email
-          }, process.env.SECRET_JWT, {expiresIn : '1h'})
+          }, process.env.SECRET_JWT)
           res.status(200).json({id : user._id, token : token, name: user.name})
         })
       } else {
